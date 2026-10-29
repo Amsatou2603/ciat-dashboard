@@ -57,3 +57,4 @@ Dans `.env` : `AI_API_KEY=<votre clé>` (et `AI_MODEL`). Redémarrer le backend.
 - *502 / page blanche* : `docker compose logs backend`.
 - *Connexion refusée après 5 essais* : verrou 15 min (par identifiant) ; redémarrer le backend vide le compteur (cache mémoire).
 - *Date au format américain* : dépend de la langue du navigateur.
+tout
