@@ -165,7 +165,8 @@ AI_HISTORY_LIMIT = 20
 # Fournisseur IA (clé uniquement côté serveur ; vide = assistant en mode « non configuré »).
 AI_PROVIDER = env("AI_PROVIDER", "anthropic")
 AI_API_KEY = env("AI_API_KEY", "")
-AI_MODEL = env("AI_MODEL", "claude-sonnet-4-6")
+# Modèle par défaut selon le fournisseur (AI_MODEL vide = valeur par défaut).
+AI_MODEL = env("AI_MODEL") or ("gemini-2.5-flash" if AI_PROVIDER == "gemini" else "claude-sonnet-4-6")
 AI_TIMEOUT_SECONDS = env_int("AI_TIMEOUT_SECONDS", 20)
 AI_MAX_OUTPUT_TOKENS = env_int("AI_MAX_OUTPUT_TOKENS", 500)
 

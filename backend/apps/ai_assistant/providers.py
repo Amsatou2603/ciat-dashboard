@@ -1,4 +1,4 @@
-"""Fournisseurs de modeles de langage. La cle API reste cote serveur (variable d'environnement)."""
+"""Fournisseurs de modèles de langage. La clé API reste côté serveur (variable d'environnement)."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from django.conf import settings
 
 
 class ProviderError(Exception):
-    """Erreur du fournisseur (reseau, quota, reponse invalide). Le message ne contient jamais de secret."""
+    """Erreur du fournisseur (réseau, quota, réponse invalide). Le message ne contient jamais de secret."""
 
 
 class Provider(Protocol):
@@ -39,82 +39,68 @@ class AnthropicProvider:
             blocks = response.json().get("content", [])
             text = "".join(b.get("text", "") for b in blocks if b.get("type") == "text").strip()
         except httpx.TimeoutException as exc:
-            raise ProviderError("delai depasse") from exc
+            raise ProviderError("délai dépassé") from exc
         except httpx.HTTPStatusError as exc:
-            raise ProviderError(f"erreur HTTP {exc.response.status_code}") from exc
+            raise ProviderError(f"erreur HTTP {exc.response.status_code}") from exc  # pas de corps ni d'en-têtes
         except (httpx.HTTPError, ValueError) as exc:
-            raise ProviderError("fournisseur injoignable ou reponse invalide") from exc
+            raise ProviderError("fournisseur injoignable ou réponse invalide") from exc
         if not text:
-            raise ProviderError("reponse vide")
+            raise ProviderError("réponse vide")
         return text
 
 
 class GeminiProvider:
-    """Fournisseur Google Gemini via l'API REST generateContent."""
+    """API Google Gemini (generateContent). La clé voyage dans l'en-tête `x-goog-api-key`, jamais dans l'URL (donc jamais journalisée)."""
+
+    base_url = "https://generativelanguage.googleapis.com/v1beta/models"
 
     def __init__(self, api_key: str, model: str, timeout: int, max_tokens: int):
-        self.api_key = api_key
-        self.model = model
-        self.timeout = timeout
-        self.max_tokens = max_tokens
+        self.api_key, self.model, self.timeout, self.max_tokens = api_key, model, timeout, max_tokens
 
-    @property
-    def url(self) -> str:
-        return f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
+    def _payload(self, system: str, user: str) -> dict:
+        config: dict = {"temperature": 0.2, "maxOutputTokens": self.max_tokens}
+        if self.model.startswith("gemini-2.5-flash"):
+            # Les modèles 2.5 « réfléchissent » avant de répondre et ces jetons comptent dans la limite de sortie : on les désactive
+            # (thinkingBudget = 0) pour que la réponse courte ne soit pas tronquée ou vide.
+            config["thinkingConfig"] = {"thinkingBudget": 0}
+        else:
+            config["maxOutputTokens"] = max(self.max_tokens, 2048)  # marge si le modèle ne permet pas de couper la réflexion
+        return {
+            "system_instruction": {"parts": [{"text": system}]},
+            "contents": [{"role": "user", "parts": [{"text": user}]}],
+            "generationConfig": config,
+        }
 
     def generate(self, system: str, user: str) -> str:
-        import time
-
-        last_error = None
-        for attempt in range(2):
-            try:
-                response = httpx.post(
-                    self.url,
-                    headers={"content-type": "application/json"},
-                    json={
-                        "system_instruction": {"parts": [{"text": system}]},
-                        "contents": [{"role": "user", "parts": [{"text": user}]}],
-                        "generationConfig": {"maxOutputTokens": self.max_tokens},
-                    },
-                    timeout=self.timeout,
-                )
-                if response.status_code in (503, 429) and attempt == 0:
-                    time.sleep(1.5)
-                    continue
-                response.raise_for_status()
-                candidates = response.json().get("candidates", [])
-                text = ""
-                if candidates:
-                    parts = candidates[0].get("content", {}).get("parts", [])
-                    # Filtre les pensées internes si le modèle en renvoie
-                    text = "".join(p.get("text", "") for p in parts if not p.get("thought")).strip()
-                    if not text:
-                        text = "".join(p.get("text", "") for p in parts).strip()
-                if not text:
-                    raise ProviderError("reponse vide")
-                return text
-            except httpx.TimeoutException as exc:
-                last_error = ProviderError("delai depasse")
-            except httpx.HTTPStatusError as exc:
-                if exc.response.status_code in (503, 429) and attempt == 0:
-                    time.sleep(1.5)
-                    continue
-                last_error = ProviderError(f"erreur HTTP {exc.response.status_code}")
-            except (httpx.HTTPError, ValueError) as exc:
-                last_error = ProviderError("fournisseur injoignable ou reponse invalide")
-
-        if last_error:
-            raise last_error
-        raise ProviderError("fournisseur injoignable")
+        try:
+            response = httpx.post(
+                f"{self.base_url}/{self.model}:generateContent",
+                headers={"x-goog-api-key": self.api_key, "content-type": "application/json"},
+                json=self._payload(system, user),
+                timeout=self.timeout,
+            )
+            response.raise_for_status()
+            candidates = response.json().get("candidates") or []
+            parts = (candidates[0].get("content") or {}).get("parts", []) if candidates else []
+            text = "".join(p.get("text", "") for p in parts).strip()
+        except httpx.TimeoutException as exc:
+            raise ProviderError("délai dépassé") from exc
+        except httpx.HTTPStatusError as exc:
+            raise ProviderError(f"erreur HTTP {exc.response.status_code}") from exc  # ni corps, ni en-têtes, ni clé
+        except (httpx.HTTPError, ValueError, AttributeError) as exc:
+            raise ProviderError("fournisseur injoignable ou réponse invalide") from exc
+        if not text:
+            raise ProviderError("réponse vide ou bloquée")
+        return text
 
 
 def get_provider() -> Provider | None:
-    """None si aucune cle n est configuree : l assistant l annonce explicitement."""
+    """None si aucune clé n'est configurée : l'assistant l'annonce explicitement au lieu de simuler une IA."""
     if not settings.AI_API_KEY:
         return None
-    provider = settings.AI_PROVIDER.lower()
-    if provider == "gemini":
-        return GeminiProvider(settings.AI_API_KEY, settings.AI_MODEL, settings.AI_TIMEOUT_SECONDS, settings.AI_MAX_OUTPUT_TOKENS)
-    if provider == "anthropic":
-        return AnthropicProvider(settings.AI_API_KEY, settings.AI_MODEL, settings.AI_TIMEOUT_SECONDS, settings.AI_MAX_OUTPUT_TOKENS)
-    return None
+    args = (settings.AI_API_KEY, settings.AI_MODEL, settings.AI_TIMEOUT_SECONDS, settings.AI_MAX_OUTPUT_TOKENS)
+    if settings.AI_PROVIDER == "anthropic":
+        return AnthropicProvider(*args)
+    if settings.AI_PROVIDER == "gemini":
+        return GeminiProvider(*args)
+    return None  # fournisseur inconnu : traité comme « non configuré »

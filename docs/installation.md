@@ -51,10 +51,9 @@ npm run dev                                    # http://localhost:5173 (proxy /a
 `admin_demo`, `coordo_demo`, `analyste_demo`, `lecteur_demo` (un par rôle). **Aucun mot de passe par défaut** : il est généré à la création (ou fourni par `--password`). Ces comptes n'existent qu'après `--with-users`.
 
 ## Activer l'assistant IA
-Dans `.env` : `AI_API_KEY=<votre clé>` (et `AI_MODEL`). Redémarrer le backend. Sans clé, l'assistant fonctionne en mode « calcul serveur » et l'indique.
+Dans `.env` (ou dans les variables d'environnement de l'hébergeur) : `AI_PROVIDER=gemini` (ou `anthropic`), `AI_API_KEY=<votre clé>`, et facultativement `AI_MODEL` (défaut : `gemini-2.5-flash`). Redémarrer le backend. Sans clé, l'assistant fonctionne en mode « calcul serveur » et l'indique. **Il faut que `AI_PROVIDER` corresponde à la clé** : une clé Gemini envoyée avec `AI_PROVIDER=anthropic` est refusée et l'interface affiche « service IA momentanément indisponible ». Diagnostic : le journal du backend indique `Fournisseur IA indisponible : erreur HTTP <code>` (400 requête/modèle, 403 clé refusée ou API non activée, 404 modèle inconnu, 429 quota dépassé).
 
 ## Dépannage
 - *502 / page blanche* : `docker compose logs backend`.
 - *Connexion refusée après 5 essais* : verrou 15 min (par identifiant) ; redémarrer le backend vide le compteur (cache mémoire).
 - *Date au format américain* : dépend de la langue du navigateur.
-tout

@@ -29,7 +29,7 @@
 1. **Compteurs de limitation et de verrouillage en mémoire locale** (cache Django par défaut) : avec plusieurs workers gunicorn, chaque worker a son compteur (verrou effectif jusqu'à ~3× plus laxiste) et un redémarrage les remet à zéro. *Recommandation* : cache partagé (Redis ou `DatabaseCache`) en production.
 2. **Un jeton d'accès déjà émis reste valide jusqu'à 10 min** après désactivation d'un compte (JWT sans état) ; le renouvellement, lui, est refusé.
 3. **Pas d'authentification à deux facteurs**, pas de politique d'expiration des mots de passe, pas de réinitialisation par e-mail.
-4. **Interprétation des questions IA par règles** : une question hors périmètre est refusée plutôt que « devinée ». Si une clé est configurée, le texte de la question et un résumé de résultats **quittent le serveur vers le fournisseur** : à valider (RGPD / politique de l'ISEP) avant usage avec des données réelles.
+4. **Interprétation des questions IA par règles** : une question hors périmètre est refusée plutôt que « devinée ». Si une clé est configurée, le texte de la question et un résumé de résultats **quittent le serveur vers le fournisseur** (Anthropic ou Google Gemini selon `AI_PROVIDER`) : à valider (RGPD / politique de l'ISEP) avant usage avec des données réelles. Vérifier dans les conditions du fournisseur si les offres gratuites autorisent la réutilisation des contenus envoyés.
 5. **La CSP du SPA autorise `style-src 'unsafe-inline'`** (styles inline produits par Recharts/React) ; `script-src` reste `'self'`.
 6. **Journal d'audit non immuable** (table SQL modifiable par un administrateur de base).
 7. **Pas d'analyse dynamique (DAST) ni de test d'intrusion** réalisés. `pip-audit`/`npm audit` ne couvrent que les vulnérabilités connues.

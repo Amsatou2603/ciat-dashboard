@@ -34,7 +34,7 @@ export default function LoginPage() {
     <main className="mx-auto grid min-h-dvh max-w-6xl items-center gap-10 px-5 py-10 lg:grid-cols-[1.15fr_1fr]">
       <section className="rise" aria-labelledby="intro">
         <div className="mb-8">
-          <Logo variant="horizontal" className="h-12 w-auto max-w-[260px] sm:h-16 sm:max-w-[340px]" />
+          <Logo variant="horizontal" className="h-10 w-auto max-w-[200px] sm:h-12 sm:max-w-[240px]" />
         </div>
         <h1 id="intro" className="text-[38px] font-bold leading-[1.08] sm:text-[52px]">Piloter l’incubateur<br /><span style={{ background: 'linear-gradient(100deg, var(--accent), var(--violet))', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>avec clarté.</span></h1>
         <p className="mt-5 max-w-md text-[17px] text-ink-2">Suivez les idées, les projets, les retards, les partenariats et les financements du CIAT, sur des données enregistrées et vérifiables.</p>
