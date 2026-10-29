@@ -1,0 +1,17 @@
+# Dépendances d'exécution épinglées (générées depuis l'environnement testé : Python 3.12).
+# Mise à jour : pip install -U <paquet> puis relancer les tests et `pip-audit`.
+Django==5.2.18
+djangorestframework==3.18.3
+djangorestframework_simplejwt==5.5.1
+django-filter==26.2
+drf-spectacular==0.30.0
+django-cors-headers==4.9.0
+whitenoise==6.12.0
+dj-database-url==3.1.2
+psycopg2-binary==2.9.13
+gunicorn==26.2.0
+httpx==0.28.1
+openpyxl==3.1.5
+reportlab==5.1.0
+matplotlib==3.11.2
+python-dateutil==3.0.0

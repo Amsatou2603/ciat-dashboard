@@ -1,0 +1,8 @@
+line-length = 140
+target-version = "py312"
+extend-exclude = ["migrations"]
+
+[lint]
+select = ["E", "F", "I", "B", "S", "UP"]
+ignore = ["E501", "S101", "S105", "S106", "S311", "B904", "UP042"]
+per-file-ignores = { "tests/*" = ["S", "B"], "apps/projects/management/commands/seed_demo.py" = ["S311"] }

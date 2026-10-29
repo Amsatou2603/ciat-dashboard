@@ -1,0 +1,59 @@
+# Environnement local / démonstration. Aucun secret ici : tout vient du fichier .env (voir .env.example).
+name: ciat-dashboard
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ciat}
+      POSTGRES_USER: ${POSTGRES_USER:-ciat}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Définir POSTGRES_PASSWORD dans .env}
+    volumes:
+      - ciat_pgdata:/var/lib/postgresql/data   # données persistantes
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  migrate:  # tâche unique : applique les migrations avant le démarrage du backend
+    build: ./backend
+    command: ["python", "manage.py", "migrate", "--noinput"]
+    env_file: .env
+    environment: &backend_env
+      DATABASE_URL: postgres://${POSTGRES_USER:-ciat}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-ciat}
+    depends_on:
+      db: { condition: service_healthy }
+    restart: "no"
+
+  backend:
+    build: ./backend
+    env_file: .env
+    environment: *backend_env
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+    restart: unless-stopped
+    expose: ["8000"]
+
+  tools:  # outils ponctuels (import de données…) : `docker compose run --rm tools <commande>` ; ne démarre pas avec `up`
+    build: ./backend
+    profiles: ["tools"]
+    env_file: .env
+    environment: *backend_env
+    volumes:
+      - ./data:/data:ro   # jeu de données du data analyst (lecture seule)
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+    restart: "no"
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      backend: { condition: service_healthy }
+    ports:
+      - "${WEB_PORT:-8080}:8080"
+    restart: unless-stopped
+
+volumes:
+  ciat_pgdata:

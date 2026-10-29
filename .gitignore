@@ -1,0 +1,34 @@
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+backend/staticfiles/
+backend/media/
+*.sqlite3
+
+# Node / build
+node_modules/
+frontend/dist/
+frontend/coverage/
+*.tsbuildinfo
+
+# Éditeurs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Sauvegardes et archives
+backups/
+*.sql
+*.zip

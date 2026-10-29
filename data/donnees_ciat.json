@@ -1,0 +1,387 @@
+{
+  "metadata": {
+    "source": "CIAT - Centre d'Innovation, d'Application et de Transfert - ISEP Amadou Trawaré de Diamniadio",
+    "date_creation": "2026-10-26",
+    "auteur": "Data Analyst - Équipe Projet 3",
+    "description": "Jeu de données simulé; les 20 projets détaillés constituent un sous-ensemble des 77 sélections agrégées par cohorte.",
+    "note_perimetre": "Les domaines retenus sont TIC et Automobile avec uniquement les sous-domaines listés. 18 projets simulés sont classés en TIC, aucun projet fourni ne décrit clairement l'automobile, et deux projets de robotique industrielle restent sans classement. Les sélections par cohorte sont des agrégats distincts des 20 projets détaillés.",
+    "version": "1.0",
+    "licence": "Usage interne - Évaluation académique"
+  },
+  "cohortes": [
+    { "id": "COH-2023", "nom": "Cohorte 2023", "annee": 2023, "date_debut": "2023-03-15", "date_fin": "2023-12-20", "nb_candidatures": 45, "nb_selectionnes": 12, "statut": "Terminée" },
+    { "id": "COH-2024", "nom": "Cohorte 2024", "annee": 2024, "date_debut": "2024-02-10", "date_fin": "2024-11-30", "nb_candidatures": 68, "nb_selectionnes": 18, "statut": "Terminée" },
+    { "id": "COH-2025", "nom": "Cohorte 2025", "annee": 2025, "date_debut": "2025-01-20", "date_fin": "2025-12-15", "nb_candidatures": 82, "nb_selectionnes": 22, "statut": "Terminée" },
+    { "id": "COH-2026", "nom": "Cohorte 2026", "annee": 2026, "date_debut": "2026-03-01", "date_fin": "2026-12-20", "nb_candidatures": 95, "nb_selectionnes": 25, "statut": "En cours" }
+  ],
+  "domaines": [
+    {
+      "id": "DOM-TIC", "nom": "TIC", "code": "TIC", "couleur": "#6366F1",
+      "sous_domaines": [
+        { "id": "TIC-SD-01", "nom": "Analyse des performances digitales" },
+        { "id": "TIC-SD-02", "nom": "Administration de bases de données" },
+        { "id": "TIC-SD-03", "nom": "Administration systèmes, sécurité et cloud" },
+        { "id": "TIC-SD-04", "nom": "Réseaux, sécurité et IoT" },
+        { "id": "TIC-SD-05", "nom": "Développement backend" },
+        { "id": "TIC-SD-06", "nom": "Développement frontend" }
+      ]
+    },
+    {
+      "id": "DOM-AUTO", "nom": "Automobile", "code": "AUTO", "couleur": "#F59E0B",
+      "sous_domaines": [
+        { "id": "AUTO-SD-01", "nom": "Électromécanique automobile" },
+        { "id": "AUTO-SD-02", "nom": "Carrosserie et peinture" },
+        { "id": "AUTO-SD-03", "nom": "Froid et climatisation automobile" },
+        { "id": "AUTO-SD-04", "nom": "Électromécanique et électronique automobile" }
+      ]
+    }
+  ],
+  "porteurs_projets": [
+    { "id": "PP-001", "nom": "Diallo", "prenom": "Mamadou", "genre": "M", "age": 24, "formation": "Génie Informatique", "email": "m.diallo@isep.sn", "telephone": "+221770001001" },
+    { "id": "PP-002", "nom": "Ndiaye", "prenom": "Fatou", "genre": "F", "age": 22, "formation": "Génie Informatique", "email": "f.ndiaye@isep.sn", "telephone": "+221770001002" },
+    { "id": "PP-003", "nom": "Sarr", "prenom": "Ousmane", "genre": "M", "age": 26, "formation": "Mécanique Industrielle", "email": "o.sarr@isep.sn", "telephone": "+221770001003" },
+    { "id": "PP-004", "nom": "Ba", "prenom": "Aïssatou", "genre": "F", "age": 23, "formation": "Agroalimentaire", "email": "a.ba@isep.sn", "telephone": "+221770001004" },
+    { "id": "PP-005", "nom": "Sow", "prenom": "Ibrahima", "genre": "M", "age": 25, "formation": "Énergie Renouvelable", "email": "i.sow@isep.sn", "telephone": "+221770001005" },
+    { "id": "PP-006", "nom": "Diop", "prenom": "Mariama", "genre": "F", "age": 21, "formation": "Génie Informatique", "email": "m.diop@isep.sn", "telephone": "+221770001006" },
+    { "id": "PP-007", "nom": "Fall", "prenom": "Abdoulaye", "genre": "M", "age": 27, "formation": "Génie Civil", "email": "a.fall@isep.sn", "telephone": "+221770001007" },
+    { "id": "PP-008", "nom": "Gueye", "prenom": "Aminata", "genre": "F", "age": 23, "formation": "Pharmaceutique", "email": "a.gueye@isep.sn", "telephone": "+221770001008" },
+    { "id": "PP-009", "nom": "Mbaye", "prenom": "Cheikh", "genre": "M", "age": 24, "formation": "Génie Informatique", "email": "c.mbaye@isep.sn", "telephone": "+221770001009" },
+    { "id": "PP-010", "nom": "Sy", "prenom": "Khady", "genre": "F", "age": 22, "formation": "Marketing Digital", "email": "k.sy@isep.sn", "telephone": "+221770001010" },
+    { "id": "PP-011", "nom": "Thiam", "prenom": "Moussa", "genre": "M", "age": 25, "formation": "Électromécanique", "email": "m.thiam@isep.sn", "telephone": "+221770001011" },
+    { "id": "PP-012", "nom": "Kane", "prenom": "Rama", "genre": "F", "age": 24, "formation": "Biochimie", "email": "r.kane@isep.sn", "telephone": "+221770001012" },
+    { "id": "PP-013", "nom": "Cissé", "prenom": "Modou", "genre": "M", "age": 26, "formation": "Génie Informatique", "email": "m.cisse@isep.sn", "telephone": "+221770001013" },
+    { "id": "PP-014", "nom": "Touré", "prenom": "Sokhna", "genre": "F", "age": 23, "formation": "Agroalimentaire", "email": "s.toure@isep.sn", "telephone": "+221770001014" },
+    { "id": "PP-015", "nom": "Faye", "prenom": "Lamine", "genre": "M", "age": 28, "formation": "Énergie Solaire", "email": "l.faye@isep.sn", "telephone": "+221770001015" },
+    { "id": "PP-016", "nom": "Diouf", "prenom": "Ndèye", "genre": "F", "age": 22, "formation": "Génie Logiciel", "email": "n.diouf@isep.sn", "telephone": "+221770001016" },
+    { "id": "PP-017", "nom": "Seck", "prenom": "Pape", "genre": "M", "age": 25, "formation": "Mécatronique", "email": "p.seck@isep.sn", "telephone": "+221770001017" },
+    { "id": "PP-018", "nom": "Bâ", "prenom": "Diary", "genre": "F", "age": 24, "formation": "Sciences de l'Éducation", "email": "d.ba@isep.sn", "telephone": "+221770001018" },
+    { "id": "PP-019", "nom": "Camara", "prenom": "Aliou", "genre": "M", "age": 23, "formation": "Télécommunications", "email": "a.camara@isep.sn", "telephone": "+221770001019" },
+    { "id": "PP-020", "nom": "Niang", "prenom": "Awa", "genre": "F", "age": 21, "formation": "Design Graphique", "email": "a.niang@isep.sn", "telephone": "+221770001020" },
+    { "id": "PP-021", "nom": "Mbengue", "prenom": "Saliou", "genre": "M", "age": 27, "formation": "Génie Industriel", "email": "s.mbengue@isep.sn", "telephone": "+221770001021" },
+    { "id": "PP-022", "nom": "Wade", "prenom": "Coumba", "genre": "F", "age": 22, "formation": "Biotechnologie", "email": "c.wade@isep.sn", "telephone": "+221770001022" },
+    { "id": "PP-023", "nom": "Dieng", "prenom": "Babacar", "genre": "M", "age": 26, "formation": "Data Science", "email": "b.dieng@isep.sn", "telephone": "+221770001023" },
+    { "id": "PP-024", "nom": "Ly", "prenom": "Mame", "genre": "F", "age": 23, "formation": "Comptabilité-Gestion", "email": "m.ly@isep.sn", "telephone": "+221770001024" },
+    { "id": "PP-025", "nom": "Traoré", "prenom": "Boubacar", "genre": "M", "age": 25, "formation": "Génie Électrique", "email": "b.traore@isep.sn", "telephone": "+221770001025" }
+  ],
+  "projets": [
+    {
+      "id": "PRJ-001", "titre": "AgriSmart SN", "description": "Application mobile d'aide à la décision pour les agriculteurs de la zone de Diamniadio utilisant l'IA pour la prédiction des récoltes.", 
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-05", "cohorte_id": "COH-2023", "porteur_id": "PP-004", "mentor": "Dr. Samba Ndour",
+      "statut": "Prototype validé", "phase": "Post-incubation", "date_soumission": "2023-03-20", "date_selection": "2023-04-15",
+      "budget_demande": 3500000, "budget_accorde": 2800000, "budget_depense": 2650000,
+      "nb_membres_equipe": 3, "progression": 95, "note_evaluation": 16.5, "retard_jours": 0,
+      "partenaires": ["ISRA", "FAO Sénégal"], "objectifs_atteints": 8, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Étude de marché", "date_prevue": "2023-05-01", "date_reelle": "2023-04-28", "statut": "Terminé" },
+        { "nom": "Prototype V1", "date_prevue": "2023-07-15", "date_reelle": "2023-07-20", "statut": "Terminé" },
+        { "nom": "Tests terrain", "date_prevue": "2023-09-30", "date_reelle": "2023-10-05", "statut": "Terminé" },
+        { "nom": "Lancement pilote", "date_prevue": "2023-11-30", "date_reelle": "2023-12-10", "statut": "Terminé" }
+      ]
+    },
+    {
+      "id": "PRJ-002", "titre": "EduTech Dakar", "description": "Plateforme e-learning interactive avec tutorat IA pour les formations professionnelles de l'ISEP.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-06", "cohorte_id": "COH-2023", "porteur_id": "PP-006", "mentor": "Prof. Awa Diallo",
+      "statut": "Déployé", "phase": "Post-incubation", "date_soumission": "2023-03-22", "date_selection": "2023-04-15",
+      "budget_demande": 5000000, "budget_accorde": 4200000, "budget_depense": 4100000,
+      "nb_membres_equipe": 4, "progression": 100, "note_evaluation": 18.0, "retard_jours": 0,
+      "partenaires": ["UNESCO", "ADIE"], "objectifs_atteints": 10, "objectifs_total": 10,
+      "jalons": [
+        { "nom": "Conception pédagogique", "date_prevue": "2023-05-15", "date_reelle": "2023-05-10", "statut": "Terminé" },
+        { "nom": "Développement MVP", "date_prevue": "2023-08-01", "date_reelle": "2023-07-28", "statut": "Terminé" },
+        { "nom": "Tests utilisateurs", "date_prevue": "2023-10-15", "date_reelle": "2023-10-12", "statut": "Terminé" },
+        { "nom": "Déploiement", "date_prevue": "2023-12-01", "date_reelle": "2023-11-28", "statut": "Terminé" }
+      ]
+    },
+    {
+      "id": "PRJ-003", "titre": "SolarHome", "description": "Kit solaire intelligent avec monitoring IoT pour l'électrification des zones rurales.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-04", "cohorte_id": "COH-2023", "porteur_id": "PP-005", "mentor": "Ing. Moustapha Sall",
+      "statut": "Prototype validé", "phase": "Post-incubation", "date_soumission": "2023-04-01", "date_selection": "2023-04-20",
+      "budget_demande": 7000000, "budget_accorde": 5500000, "budget_depense": 5200000,
+      "nb_membres_equipe": 3, "progression": 88, "note_evaluation": 15.5, "retard_jours": 12,
+      "partenaires": ["ANER", "Senelec"], "objectifs_atteints": 7, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Conception technique", "date_prevue": "2023-05-20", "date_reelle": "2023-06-01", "statut": "Terminé" },
+        { "nom": "Fabrication prototype", "date_prevue": "2023-08-30", "date_reelle": "2023-09-15", "statut": "Terminé" },
+        { "nom": "Installation pilote", "date_prevue": "2023-11-01", "date_reelle": "2023-11-20", "statut": "Terminé" },
+        { "nom": "Évaluation impact", "date_prevue": "2023-12-15", "date_reelle": null, "statut": "En retard" }
+      ]
+    },
+    {
+      "id": "PRJ-004", "titre": "MécaBot", "description": "Bras robotique à faible coût pour l'automatisation des tâches de soudure en atelier.",
+      "domaine_id": null, "sous_domaine_id": null, "cohorte_id": "COH-2023", "porteur_id": "PP-003", "mentor": "Ing. Ibrahima Diaw",
+      "statut": "Abandonné", "phase": "Incubation", "date_soumission": "2023-03-25", "date_selection": "2023-04-15",
+      "budget_demande": 8000000, "budget_accorde": 4000000, "budget_depense": 2100000,
+      "nb_membres_equipe": 2, "progression": 35, "note_evaluation": 10.0, "retard_jours": 45,
+      "partenaires": [], "objectifs_atteints": 3, "objectifs_total": 10,
+      "jalons": [
+        { "nom": "Cahier des charges", "date_prevue": "2023-05-10", "date_reelle": "2023-05-25", "statut": "Terminé" },
+        { "nom": "Acquisition composants", "date_prevue": "2023-06-30", "date_reelle": "2023-08-10", "statut": "Terminé" },
+        { "nom": "Assemblage V1", "date_prevue": "2023-09-15", "date_reelle": null, "statut": "Abandonné" }
+      ]
+    },
+    {
+      "id": "PRJ-005", "titre": "PharmaCheck", "description": "Application de vérification de l'authenticité des médicaments par QR code et blockchain.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-05", "cohorte_id": "COH-2024", "porteur_id": "PP-008", "mentor": "Dr. Fatou Sène",
+      "statut": "Prototype validé", "phase": "Post-incubation", "date_soumission": "2024-02-15", "date_selection": "2024-03-10",
+      "budget_demande": 6000000, "budget_accorde": 4800000, "budget_depense": 4500000,
+      "nb_membres_equipe": 3, "progression": 90, "note_evaluation": 17.0, "retard_jours": 5,
+      "partenaires": ["Ordre des Pharmaciens", "OMS Dakar"], "objectifs_atteints": 8, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Étude réglementaire", "date_prevue": "2024-04-01", "date_reelle": "2024-04-05", "statut": "Terminé" },
+        { "nom": "Architecture système", "date_prevue": "2024-06-01", "date_reelle": "2024-06-01", "statut": "Terminé" },
+        { "nom": "Prototype fonctionnel", "date_prevue": "2024-08-15", "date_reelle": "2024-08-20", "statut": "Terminé" },
+        { "nom": "Tests pharmacies", "date_prevue": "2024-10-30", "date_reelle": "2024-11-02", "statut": "Terminé" }
+      ]
+    },
+    {
+      "id": "PRJ-006", "titre": "WasteTech", "description": "Système intelligent de tri et de valorisation des déchets plastiques avec traçabilité.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-04", "cohorte_id": "COH-2024", "porteur_id": "PP-014", "mentor": "Dr. Abdou Khadre Diop",
+      "statut": "En cours", "phase": "Post-incubation", "date_soumission": "2024-02-20", "date_selection": "2024-03-10",
+      "budget_demande": 4500000, "budget_accorde": 3600000, "budget_depense": 3200000,
+      "nb_membres_equipe": 3, "progression": 78, "note_evaluation": 15.0, "retard_jours": 8,
+      "partenaires": ["UCG", "Terangaverte"], "objectifs_atteints": 7, "objectifs_total": 10,
+      "jalons": [
+        { "nom": "Analyse des flux", "date_prevue": "2024-04-15", "date_reelle": "2024-04-20", "statut": "Terminé" },
+        { "nom": "Prototype trieur", "date_prevue": "2024-07-01", "date_reelle": "2024-07-10", "statut": "Terminé" },
+        { "nom": "Pilote terrain", "date_prevue": "2024-09-30", "date_reelle": "2024-10-08", "statut": "Terminé" },
+        { "nom": "Mise à l'échelle", "date_prevue": "2024-11-30", "date_reelle": null, "statut": "En cours" }
+      ]
+    },
+    {
+      "id": "PRJ-007", "titre": "IA-Santé", "description": "Outil d'aide au diagnostic précoce des maladies tropicales par analyse d'images médicales.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-01", "cohorte_id": "COH-2024", "porteur_id": "PP-012", "mentor": "Dr. Fatou Sène",
+      "statut": "Prototype validé", "phase": "Post-incubation", "date_soumission": "2024-03-01", "date_selection": "2024-03-20",
+      "budget_demande": 8500000, "budget_accorde": 6500000, "budget_depense": 6000000,
+      "nb_membres_equipe": 4, "progression": 85, "note_evaluation": 16.0, "retard_jours": 10,
+      "partenaires": ["Hôpital Principal de Dakar", "Institut Pasteur"], "objectifs_atteints": 7, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Collecte données médicales", "date_prevue": "2024-05-01", "date_reelle": "2024-05-15", "statut": "Terminé" },
+        { "nom": "Entraînement modèle", "date_prevue": "2024-07-15", "date_reelle": "2024-07-25", "statut": "Terminé" },
+        { "nom": "Validation clinique", "date_prevue": "2024-10-01", "date_reelle": "2024-10-10", "statut": "Terminé" },
+        { "nom": "Interface médecin", "date_prevue": "2024-11-15", "date_reelle": "2024-11-20", "statut": "Terminé" }
+      ]
+    },
+    {
+      "id": "PRJ-008", "titre": "SmartIrrigation", "description": "Système d'irrigation intelligente basé sur des capteurs IoT et la prédiction météo.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-04", "cohorte_id": "COH-2024", "porteur_id": "PP-015", "mentor": "Dr. Samba Ndour",
+      "statut": "Prototype validé", "phase": "Post-incubation", "date_soumission": "2024-02-25", "date_selection": "2024-03-15",
+      "budget_demande": 5500000, "budget_accorde": 4000000, "budget_depense": 3800000,
+      "nb_membres_equipe": 3, "progression": 82, "note_evaluation": 14.5, "retard_jours": 15,
+      "partenaires": ["SAED", "ANCAR"], "objectifs_atteints": 6, "objectifs_total": 8,
+      "jalons": [
+        { "nom": "Installation capteurs", "date_prevue": "2024-05-15", "date_reelle": "2024-06-01", "statut": "Terminé" },
+        { "nom": "Algorithme prédiction", "date_prevue": "2024-07-30", "date_reelle": "2024-08-10", "statut": "Terminé" },
+        { "nom": "Tests parcelles", "date_prevue": "2024-10-15", "date_reelle": "2024-10-30", "statut": "Terminé" },
+        { "nom": "Documentation", "date_prevue": "2024-11-30", "date_reelle": null, "statut": "En cours" }
+      ]
+    },
+    {
+      "id": "PRJ-009", "titre": "ConnectEdu", "description": "Plateforme de mise en relation entre entreprises et étudiants pour stages et emplois dans les filières techniques.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-06", "cohorte_id": "COH-2024", "porteur_id": "PP-010", "mentor": "M. Alioune Badara Diop",
+      "statut": "Déployé", "phase": "Post-incubation", "date_soumission": "2024-03-05", "date_selection": "2024-03-20",
+      "budget_demande": 3000000, "budget_accorde": 2500000, "budget_depense": 2400000,
+      "nb_membres_equipe": 3, "progression": 100, "note_evaluation": 17.5, "retard_jours": 0,
+      "partenaires": ["ANPEJ", "Chambre de Commerce de Dakar"], "objectifs_atteints": 10, "objectifs_total": 10,
+      "jalons": [
+        { "nom": "Étude de marché", "date_prevue": "2024-04-10", "date_reelle": "2024-04-08", "statut": "Terminé" },
+        { "nom": "Développement plateforme", "date_prevue": "2024-07-01", "date_reelle": "2024-06-28", "statut": "Terminé" },
+        { "nom": "Partenariats entreprises", "date_prevue": "2024-09-15", "date_reelle": "2024-09-10", "statut": "Terminé" },
+        { "nom": "Lancement officiel", "date_prevue": "2024-11-01", "date_reelle": "2024-10-30", "statut": "Terminé" }
+      ]
+    },
+    {
+      "id": "PRJ-010", "titre": "DataViz Sénégal", "description": "Outil de visualisation des données socio-économiques régionales pour les collectivités territoriales.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-01", "cohorte_id": "COH-2024", "porteur_id": "PP-001", "mentor": "Prof. Cheikh Tidiane Ndiaye",
+      "statut": "En cours", "phase": "Post-incubation", "date_soumission": "2024-03-08", "date_selection": "2024-03-25",
+      "budget_demande": 4000000, "budget_accorde": 3200000, "budget_depense": 2800000,
+      "nb_membres_equipe": 3, "progression": 72, "note_evaluation": 14.0, "retard_jours": 20,
+      "partenaires": ["ANSD", "ARD Dakar"], "objectifs_atteints": 6, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Collecte données", "date_prevue": "2024-05-01", "date_reelle": "2024-05-20", "statut": "Terminé" },
+        { "nom": "Nettoyage et modélisation", "date_prevue": "2024-07-15", "date_reelle": "2024-08-01", "statut": "Terminé" },
+        { "nom": "Dashboard V1", "date_prevue": "2024-09-30", "date_reelle": "2024-10-15", "statut": "Terminé" },
+        { "nom": "Tests collectivités", "date_prevue": "2024-11-30", "date_reelle": null, "statut": "En cours" }
+      ]
+    },
+    {
+      "id": "PRJ-011", "titre": "AI-Mentor", "description": "Chatbot IA d'accompagnement et de mentorat pour les porteurs de projets de l'incubateur.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-05", "cohorte_id": "COH-2025", "porteur_id": "PP-009", "mentor": "Prof. Cheikh Tidiane Ndiaye",
+      "statut": "En cours", "phase": "Incubation", "date_soumission": "2025-01-25", "date_selection": "2025-02-15",
+      "budget_demande": 4500000, "budget_accorde": 3500000, "budget_depense": 2100000,
+      "nb_membres_equipe": 3, "progression": 65, "note_evaluation": 15.5, "retard_jours": 5,
+      "partenaires": ["Google for Startups"], "objectifs_atteints": 5, "objectifs_total": 8,
+      "jalons": [
+        { "nom": "Conception NLP", "date_prevue": "2025-03-15", "date_reelle": "2025-03-20", "statut": "Terminé" },
+        { "nom": "Base de connaissances", "date_prevue": "2025-06-01", "date_reelle": "2025-06-01", "statut": "Terminé" },
+        { "nom": "Prototype chatbot", "date_prevue": "2025-08-30", "date_reelle": "2025-09-05", "statut": "Terminé" },
+        { "nom": "Intégration portail CIAT", "date_prevue": "2025-11-30", "date_reelle": null, "statut": "En cours" }
+      ]
+    },
+    {
+      "id": "PRJ-012", "titre": "GreenEnergy Monitor", "description": "Dashboard de monitoring en temps réel de la production d'énergie solaire dans les bâtiments de l'ISEP.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-01", "cohorte_id": "COH-2025", "porteur_id": "PP-025", "mentor": "Ing. Moustapha Sall",
+      "statut": "En cours", "phase": "Incubation", "date_soumission": "2025-02-01", "date_selection": "2025-02-20",
+      "budget_demande": 6000000, "budget_accorde": 4500000, "budget_depense": 2800000,
+      "nb_membres_equipe": 4, "progression": 60, "note_evaluation": 14.5, "retard_jours": 10,
+      "partenaires": ["ANER", "GIZ Sénégal"], "objectifs_atteints": 5, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Audit énergétique", "date_prevue": "2025-03-30", "date_reelle": "2025-04-05", "statut": "Terminé" },
+        { "nom": "Installation capteurs", "date_prevue": "2025-06-15", "date_reelle": "2025-06-30", "statut": "Terminé" },
+        { "nom": "Dashboard V1", "date_prevue": "2025-09-01", "date_reelle": null, "statut": "En cours" },
+        { "nom": "Rapport impact", "date_prevue": "2025-12-01", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-013", "titre": "AgroMarket", "description": "Place de marché digitale connectant les producteurs agricoles aux acheteurs avec système de prix en temps réel.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-06", "cohorte_id": "COH-2025", "porteur_id": "PP-014", "mentor": "Dr. Samba Ndour",
+      "statut": "Prototype validé", "phase": "Incubation", "date_soumission": "2025-01-28", "date_selection": "2025-02-18",
+      "budget_demande": 5000000, "budget_accorde": 4000000, "budget_depense": 3200000,
+      "nb_membres_equipe": 3, "progression": 75, "note_evaluation": 16.0, "retard_jours": 3,
+      "partenaires": ["CNCR", "Teranga Foods"], "objectifs_atteints": 6, "objectifs_total": 8,
+      "jalons": [
+        { "nom": "Étude filières", "date_prevue": "2025-03-20", "date_reelle": "2025-03-22", "statut": "Terminé" },
+        { "nom": "Plateforme V1", "date_prevue": "2025-06-30", "date_reelle": "2025-07-05", "statut": "Terminé" },
+        { "nom": "Tests producteurs", "date_prevue": "2025-09-15", "date_reelle": "2025-09-18", "statut": "Terminé" },
+        { "nom": "Lancement régional", "date_prevue": "2025-12-01", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-014", "titre": "MedTrack", "description": "Application de suivi des stocks et de la chaîne d'approvisionnement des médicaments essentiels.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-02", "cohorte_id": "COH-2025", "porteur_id": "PP-022", "mentor": "Dr. Fatou Sène",
+      "statut": "En cours", "phase": "Incubation", "date_soumission": "2025-02-05", "date_selection": "2025-02-25",
+      "budget_demande": 5500000, "budget_accorde": 4200000, "budget_depense": 2500000,
+      "nb_membres_equipe": 3, "progression": 55, "note_evaluation": 13.5, "retard_jours": 18,
+      "partenaires": ["PNA", "Pharmacie Nationale"], "objectifs_atteints": 4, "objectifs_total": 8,
+      "jalons": [
+        { "nom": "Analyse chaîne", "date_prevue": "2025-04-01", "date_reelle": "2025-04-10", "statut": "Terminé" },
+        { "nom": "Modèle de données", "date_prevue": "2025-06-15", "date_reelle": "2025-07-01", "statut": "Terminé" },
+        { "nom": "Application mobile", "date_prevue": "2025-09-30", "date_reelle": null, "statut": "En cours" },
+        { "nom": "Pilote pharmacies", "date_prevue": "2025-12-15", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-015", "titre": "FormaPro+", "description": "Outil de gestion et de suivi des formations continues dispensées par l'ISEP avec certifications numériques.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-02", "cohorte_id": "COH-2025", "porteur_id": "PP-018", "mentor": "Prof. Awa Diallo",
+      "statut": "En cours", "phase": "Incubation", "date_soumission": "2025-02-10", "date_selection": "2025-03-01",
+      "budget_demande": 3500000, "budget_accorde": 2800000, "budget_depense": 1800000,
+      "nb_membres_equipe": 3, "progression": 58, "note_evaluation": 14.0, "retard_jours": 7,
+      "partenaires": ["ONFP", "3FPT"], "objectifs_atteints": 5, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Analyse besoins", "date_prevue": "2025-04-15", "date_reelle": "2025-04-18", "statut": "Terminé" },
+        { "nom": "Système certification", "date_prevue": "2025-07-01", "date_reelle": "2025-07-10", "statut": "Terminé" },
+        { "nom": "Plateforme V1", "date_prevue": "2025-10-01", "date_reelle": null, "statut": "En cours" },
+        { "nom": "Tests formateurs", "date_prevue": "2025-12-01", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-016", "titre": "RoboAssist", "description": "Robot d'assistance pour personnes à mobilité réduite avec commande vocale en wolof et français.",
+      "domaine_id": null, "sous_domaine_id": null, "cohorte_id": "COH-2025", "porteur_id": "PP-017", "mentor": "Ing. Ibrahima Diaw",
+      "statut": "Idée", "phase": "Pré-incubation", "date_soumission": "2025-02-15", "date_selection": "2025-03-05",
+      "budget_demande": 10000000, "budget_accorde": 5000000, "budget_depense": 1500000,
+      "nb_membres_equipe": 4, "progression": 30, "note_evaluation": 12.0, "retard_jours": 25,
+      "partenaires": [], "objectifs_atteints": 2, "objectifs_total": 10,
+      "jalons": [
+        { "nom": "Étude faisabilité", "date_prevue": "2025-04-30", "date_reelle": "2025-05-20", "statut": "Terminé" },
+        { "nom": "Conception mécanique", "date_prevue": "2025-07-30", "date_reelle": null, "statut": "En retard" },
+        { "nom": "Prototype V1", "date_prevue": "2025-10-30", "date_reelle": null, "statut": "Planifié" },
+        { "nom": "Tests utilisateurs", "date_prevue": "2025-12-15", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-017", "titre": "CyberShield SN", "description": "Solution de cybersécurité pour PME sénégalaises avec détection d'intrusion par IA.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-03", "cohorte_id": "COH-2026", "porteur_id": "PP-013", "mentor": "Prof. Cheikh Tidiane Ndiaye",
+      "statut": "En cours", "phase": "Incubation", "date_soumission": "2026-03-05", "date_selection": "2026-03-25",
+      "budget_demande": 7000000, "budget_accorde": 5500000, "budget_depense": 1800000,
+      "nb_membres_equipe": 3, "progression": 35, "note_evaluation": null, "retard_jours": 0,
+      "partenaires": ["ADIE", "Orange Cyberdéfense"], "objectifs_atteints": 3, "objectifs_total": 10,
+      "jalons": [
+        { "nom": "Analyse menaces", "date_prevue": "2026-04-30", "date_reelle": "2026-04-28", "statut": "Terminé" },
+        { "nom": "Architecture sécurité", "date_prevue": "2026-07-15", "date_reelle": null, "statut": "En cours" },
+        { "nom": "Moteur IA détection", "date_prevue": "2026-10-01", "date_reelle": null, "statut": "Planifié" },
+        { "nom": "Tests pénétration", "date_prevue": "2026-12-01", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-018", "titre": "DigiCraft", "description": "Plateforme de digitalisation et vente en ligne pour artisans sénégalais avec IA de recommandation.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-06", "cohorte_id": "COH-2026", "porteur_id": "PP-020", "mentor": "M. Alioune Badara Diop",
+      "statut": "En cours", "phase": "Incubation", "date_soumission": "2026-03-10", "date_selection": "2026-03-28",
+      "budget_demande": 4000000, "budget_accorde": 3200000, "budget_depense": 900000,
+      "nb_membres_equipe": 3, "progression": 28, "note_evaluation": null, "retard_jours": 0,
+      "partenaires": ["Chambre des Métiers"], "objectifs_atteints": 2, "objectifs_total": 8,
+      "jalons": [
+        { "nom": "Étude artisans", "date_prevue": "2026-04-20", "date_reelle": "2026-04-18", "statut": "Terminé" },
+        { "nom": "Design UX/UI", "date_prevue": "2026-06-30", "date_reelle": null, "statut": "En cours" },
+        { "nom": "Marketplace V1", "date_prevue": "2026-09-30", "date_reelle": null, "statut": "Planifié" },
+        { "nom": "Onboarding artisans", "date_prevue": "2026-12-15", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-019", "titre": "BioDetect", "description": "Dispositif portable de détection rapide de pathogènes alimentaires avec application mobile.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-04", "cohorte_id": "COH-2026", "porteur_id": "PP-022", "mentor": "Dr. Fatou Sène",
+      "statut": "Idée", "phase": "Pré-incubation", "date_soumission": "2026-03-15", "date_selection": "2026-04-01",
+      "budget_demande": 9000000, "budget_accorde": 5000000, "budget_depense": 800000,
+      "nb_membres_equipe": 4, "progression": 15, "note_evaluation": null, "retard_jours": 0,
+      "partenaires": ["Institut Pasteur"], "objectifs_atteints": 1, "objectifs_total": 10,
+      "jalons": [
+        { "nom": "Revue littérature", "date_prevue": "2026-05-15", "date_reelle": "2026-05-12", "statut": "Terminé" },
+        { "nom": "Conception capteur", "date_prevue": "2026-08-01", "date_reelle": null, "statut": "Planifié" },
+        { "nom": "Prototype labo", "date_prevue": "2026-10-30", "date_reelle": null, "statut": "Planifié" },
+        { "nom": "Validation terrain", "date_prevue": "2026-12-15", "date_reelle": null, "statut": "Planifié" }
+      ]
+    },
+    {
+      "id": "PRJ-020", "titre": "SmartGrid Campus", "description": "Réseau électrique intelligent pour le campus de l'ISEP avec optimisation de la consommation par IA.",
+      "domaine_id": "DOM-TIC", "sous_domaine_id": "TIC-SD-04", "cohorte_id": "COH-2026", "porteur_id": "PP-005", "mentor": "Ing. Moustapha Sall",
+      "statut": "En cours", "phase": "Incubation", "date_soumission": "2026-03-08", "date_selection": "2026-03-25",
+      "budget_demande": 8000000, "budget_accorde": 6000000, "budget_depense": 1500000,
+      "nb_membres_equipe": 4, "progression": 25, "note_evaluation": null, "retard_jours": 0,
+      "partenaires": ["Senelec", "ANER"], "objectifs_atteints": 2, "objectifs_total": 9,
+      "jalons": [
+        { "nom": "Audit réseau actuel", "date_prevue": "2026-05-01", "date_reelle": "2026-04-28", "statut": "Terminé" },
+        { "nom": "Modèle prédictif", "date_prevue": "2026-07-30", "date_reelle": null, "statut": "En cours" },
+        { "nom": "Installation smart meters", "date_prevue": "2026-10-15", "date_reelle": null, "statut": "Planifié" },
+        { "nom": "Optimisation pilote", "date_prevue": "2026-12-10", "date_reelle": null, "statut": "Planifié" }
+      ]
+    }
+  ],
+  "financements": [
+    { "annee": 2023, "budget_total_alloue": 16500000, "budget_total_depense": 14050000, "sources": { "ISEP": 8000000, "Partenaires": 5000000, "Gouvernement": 3500000 } },
+    { "annee": 2024, "budget_total_alloue": 28400000, "budget_total_depense": 22700000, "sources": { "ISEP": 12000000, "Partenaires": 9000000, "Gouvernement": 5400000, "International": 2000000 } },
+    { "annee": 2025, "budget_total_alloue": 24000000, "budget_total_depense": 13900000, "sources": { "ISEP": 10000000, "Partenaires": 7500000, "Gouvernement": 4500000, "International": 2000000 } },
+    { "annee": 2026, "budget_total_alloue": 19700000, "budget_total_depense": 5000000, "sources": { "ISEP": 9000000, "Partenaires": 6000000, "Gouvernement": 3200000, "International": 1500000 } }
+  ],
+  "partenariats": [
+    { "partenaire": "ISRA", "type": "Institutionnel", "specialite": "Agriculture", "date_debut": "2023-01-01", "actif": true },
+    { "partenaire": "FAO Sénégal", "type": "International", "specialite": "Agriculture", "date_debut": "2023-06-01", "actif": true },
+    { "partenaire": "UNESCO", "type": "International", "specialite": "Éducation", "date_debut": "2023-03-01", "actif": true },
+    { "partenaire": "ADIE", "type": "Gouvernemental", "specialite": "Numérique", "date_debut": "2023-01-01", "actif": true },
+    { "partenaire": "ANER", "type": "Gouvernemental", "specialite": "Énergie", "date_debut": "2023-01-01", "actif": true },
+    { "partenaire": "Senelec", "type": "Entreprise", "specialite": "Énergie", "date_debut": "2023-05-01", "actif": true },
+    { "partenaire": "Ordre des Pharmaciens", "type": "Professionnel", "specialite": "Santé", "date_debut": "2024-01-01", "actif": true },
+    { "partenaire": "OMS Dakar", "type": "International", "specialite": "Santé", "date_debut": "2024-03-01", "actif": true },
+    { "partenaire": "Google for Startups", "type": "International", "specialite": "TIC", "date_debut": "2025-01-01", "actif": true },
+    { "partenaire": "GIZ Sénégal", "type": "International", "specialite": "Coopération", "date_debut": "2025-02-01", "actif": true },
+    { "partenaire": "ANSD", "type": "Gouvernemental", "specialite": "Données", "date_debut": "2024-04-01", "actif": true },
+    { "partenaire": "ANPEJ", "type": "Gouvernemental", "specialite": "Emploi", "date_debut": "2024-05-01", "actif": true },
+    { "partenaire": "Chambre de Commerce de Dakar", "type": "Professionnel", "specialite": "Commerce", "date_debut": "2024-06-01", "actif": true },
+    { "partenaire": "Hôpital Principal de Dakar", "type": "Institutionnel", "specialite": "Santé", "date_debut": "2024-02-01", "actif": true },
+    { "partenaire": "Institut Pasteur", "type": "Recherche", "specialite": "Santé", "date_debut": "2024-03-01", "actif": true },
+    { "partenaire": "Orange Cyberdéfense", "type": "Entreprise", "specialite": "Cybersécurité", "date_debut": "2026-03-01", "actif": true },
+    { "partenaire": "Chambre des Métiers", "type": "Professionnel", "specialite": "Artisanat", "date_debut": "2026-04-01", "actif": true },
+    { "partenaire": "3FPT", "type": "Gouvernemental", "specialite": "Formation", "date_debut": "2025-03-01", "actif": true }
+  ],
+  "evenements": [
+    { "id": "EVT-001", "titre": "Journée portes ouvertes CIAT", "date": "2023-05-15", "type": "Portes ouvertes", "participants": 120 },
+    { "id": "EVT-002", "titre": "Demo Day Cohorte 2023", "date": "2023-12-18", "type": "Demo Day", "participants": 85 },
+    { "id": "EVT-003", "titre": "Hackathon IA & Agriculture", "date": "2024-04-20", "type": "Hackathon", "participants": 60 },
+    { "id": "EVT-004", "titre": "Forum Partenaires 2024", "date": "2024-06-10", "type": "Forum", "participants": 95 },
+    { "id": "EVT-005", "titre": "Demo Day Cohorte 2024", "date": "2024-11-28", "type": "Demo Day", "participants": 110 },
+    { "id": "EVT-006", "titre": "Semaine de l'Innovation ISEP", "date": "2025-03-10", "type": "Semaine thématique", "participants": 200 },
+    { "id": "EVT-007", "titre": "Atelier Design Thinking", "date": "2025-05-22", "type": "Atelier", "participants": 40 },
+    { "id": "EVT-008", "titre": "Conférence IA Générative", "date": "2025-09-15", "type": "Conférence", "participants": 150 },
+    { "id": "EVT-009", "titre": "Demo Day Cohorte 2025", "date": "2025-12-12", "type": "Demo Day", "participants": 130 },
+    { "id": "EVT-010", "titre": "Lancement Cohorte 2026", "date": "2026-03-01", "type": "Cérémonie", "participants": 180 },
+    { "id": "EVT-011", "titre": "Hackathon Santé Numérique", "date": "2026-06-15", "type": "Hackathon", "participants": 75 },
+    { "id": "EVT-012", "titre": "Forum Investisseurs", "date": "2026-09-20", "type": "Forum", "participants": 90 }
+  ]
+}

@@ -1,0 +1,49 @@
+/* Système de design « CIAT Glass » — inspiré des principes visionOS / Liquid Glass (non officiel Apple).
+   Tous les composants lisent ces variables ; le mode sombre redéfinit les rôles (pas une simple inversion). */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable', 'Segoe UI', system-ui, sans-serif;
+
+  --r-control: 12px; --r-panel: 22px; --r-sheet: 28px;
+  --ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1); --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --t-fast: 160ms; --t-base: 260ms; --t-slow: 420ms;
+  --sidebar-w: 272px;
+}
+
+:root, :root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f8f6f4; --surface: #ffffff; --surface-2: #f3ede7; --line: #e6ded6; --line-strong: #d2c6ba;
+  --ink: #1f1814; --ink-2: #524740; --ink-3: #756a63;
+  --accent: #5a2c14; --accent-strong: #401e0c; --accent-soft: #f5ede6; --on-accent: #ffffff;
+  --indigo: #8c4422; --violet: #c59571; --cyan: #b87b42;
+  --success: #1b6d3b; --success-soft: #e5f6ec; --warning: #8f5200; --warning-soft: #fff1d9; --danger: #b3261e; --danger-soft: #fde8e6;
+
+  --glass-bg: rgba(255, 255, 255, 0.72); --glass-bg-strong: rgba(255, 255, 255, 0.88); --glass-line: rgba(255, 255, 255, 0.75);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-panel: 0 1px 2px rgba(45, 30, 20, 0.05), 0 8px 24px -12px rgba(45, 30, 20, 0.12);
+  --shadow-float: 0 12px 40px -12px rgba(60, 40, 25, 0.25), 0 2px 6px rgba(45, 30, 20, 0.06);
+  --aurora-1: rgba(197, 149, 113, 0.22); --aurora-2: rgba(90, 44, 20, 0.14); --aurora-3: rgba(184, 93, 53, 0.12);
+  --overlay: rgba(30, 20, 15, 0.42); --focus: #5a2c14;
+
+  --chart-1: #5a2c14; --chart-2: #c59571; --chart-3: #8c4422; --chart-4: #d48827; --chart-5: #2e7d52; --chart-6: #357b88;
+  --chart-grid: #e6ded6; --chart-axis: #6b6059;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #12100e; --surface: #1c1815; --surface-2: #26211c; --line: #383029; --line-strong: #4e443b;
+  --ink: #faf7f5; --ink-2: #cec4bc; --ink-3: #9e938a;
+  --accent: #dfa478; --accent-strong: #ecc09d; --accent-soft: #322015; --on-accent: #1c0f08;
+  --indigo: #e58756; --violet: #f2c8a4; --cyan: #f0b26e;
+  --success: #5fd68b; --success-soft: #143521; --warning: #ffbf5a; --warning-soft: #38280a; --danger: #ff8a80; --danger-soft: #3d1714;
+
+  --glass-bg: rgba(28, 24, 21, 0.68); --glass-bg-strong: rgba(28, 24, 21, 0.88); --glass-line: rgba(255, 255, 255, 0.11);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.45), 0 10px 30px -14px rgba(0, 0, 0, 0.75);
+  --shadow-float: 0 18px 50px -14px rgba(0, 0, 0, 0.85), 0 2px 8px rgba(0, 0, 0, 0.45);
+  --aurora-1: rgba(223, 164, 120, 0.18); --aurora-2: rgba(140, 68, 34, 0.20); --aurora-3: rgba(197, 149, 113, 0.12);
+  --overlay: rgba(8, 6, 5, 0.68); --focus: #dfa478;
+
+  --chart-1: #dfa478; --chart-2: #f0c49e; --chart-3: #e58756; --chart-4: #f5b054; --chart-5: #5fd68b; --chart-6: #6fd0df;
+  --chart-grid: #383029; --chart-axis: #a89d95;
+}

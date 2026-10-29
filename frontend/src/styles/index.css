@@ -1,0 +1,108 @@
+@import '@fontsource-variable/inter';
+@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 6rem; }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    min-height: 100dvh; overflow-x: hidden;
+  }
+  /* Arrière-plan spatial : trois halos statiques (aucun coût d'animation continue). */
+  body::before {
+    content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(60rem 38rem at 8% -8%, var(--aurora-1), transparent 62%),
+      radial-gradient(52rem 34rem at 96% 4%, var(--aurora-2), transparent 60%),
+      radial-gradient(46rem 30rem at 58% 108%, var(--aurora-3), transparent 62%);
+  }
+  :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 2px; border-radius: 8px; }
+  ::selection { background: var(--accent-soft); }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  table { border-collapse: collapse; }
+  /* Les enfants de grille ne doivent jamais forcer la largeur de la page (graphiques, tableaux). */
+  .grid > * { min-width: 0; }
+}
+
+@layer components {
+  /* Verre : réservé à la navigation, aux barres flottantes, menus et fenêtres. Le contenu analytique reste opaque. */
+  .glass {
+    background: var(--glass-bg); border: 1px solid var(--glass-line); box-shadow: var(--shadow-float), var(--glass-highlight);
+    -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5);
+  }
+  @media (prefers-reduced-transparency: reduce) { .glass { background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; border-color: var(--line); } }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass { background: var(--surface); } }
+
+  :root[data-theme='dark'] .logo-light { display: none !important; }
+  :root:not([data-theme='dark']) .logo-dark { display: none !important; }
+
+  .panel { @apply rounded-panel bg-surface shadow-panel; border: 1px solid var(--line); }
+  .panel-pad { @apply p-5 sm:p-6; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.08em] text-ink-3; }
+  .num { font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-control px-4 text-sm font-semibold transition duration-150 ease-enter select-none;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary { @apply bg-accent text-on-accent shadow-sm hover:bg-accent-strong active:scale-[0.985]; }
+  .btn-secondary { @apply border border-line-strong bg-surface text-ink hover:bg-surface-2 active:scale-[0.985]; }
+  .btn-ghost { @apply text-ink-2 hover:bg-surface-2 hover:text-ink; }
+  .btn-danger { @apply bg-danger text-white hover:opacity-90; }
+  :root[data-theme='dark'] .btn-danger { color: #1a0604; }
+  .btn-sm { @apply min-h-[36px] px-3 text-[13px]; }
+  .btn-icon { @apply min-w-[44px] px-0; }
+
+  .field-label { @apply mb-1.5 block text-[13px] font-semibold text-ink-2; }
+  .input {
+    @apply min-h-[44px] w-full rounded-control border border-line-strong bg-surface px-3 text-[15px] text-ink placeholder:text-ink-3;
+    @apply transition duration-150 ease-enter hover:border-ink-3 disabled:opacity-60;
+  }
+  textarea.input { @apply py-2.5; }
+  .input[aria-invalid='true'] { border-color: var(--danger); }
+  .field-error { @apply mt-1.5 text-[13px] font-medium text-danger; }
+
+  .badge { @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold; }
+  .tone-neutral { @apply bg-surface-2 text-ink-2; }
+  .tone-info { @apply bg-accent-soft text-accent; }
+  .tone-indigo { background: color-mix(in srgb, var(--indigo) 16%, var(--surface)); color: var(--indigo); }
+  .tone-violet { background: color-mix(in srgb, var(--violet) 16%, var(--surface)); color: var(--violet); }
+  .tone-success { @apply bg-success-soft text-success; }
+  .tone-warning { @apply bg-warning-soft text-warning; }
+  .tone-danger { @apply bg-danger-soft text-danger; }
+
+  .nav-link { @apply flex min-h-[44px] items-center gap-3 rounded-control px-3 text-[15px] font-medium text-ink-2 transition duration-150 ease-enter hover:bg-surface-2 hover:text-ink; }
+  .nav-link[aria-current='page'] { background: var(--accent-soft); color: var(--accent); }
+
+  .skeleton { @apply rounded-control bg-surface-2; position: relative; overflow: hidden; }
+  .skeleton::after { content: ''; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ink) 7%, transparent), transparent); animation: shimmer 1.6s infinite; }
+  .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  dialog.sheet {
+    @apply m-auto max-h-[calc(100dvh-2rem)] w-[min(640px,calc(100vw-1.5rem))] rounded-sheet p-0 text-ink;
+    background: color-mix(in srgb, var(--surface) 92%, transparent); border: 1px solid var(--glass-line); box-shadow: var(--shadow-float);
+    -webkit-backdrop-filter: blur(26px) saturate(1.5); backdrop-filter: blur(26px) saturate(1.5);
+  }
+  @media (prefers-reduced-transparency: reduce) { dialog.sheet { background: var(--surface); backdrop-filter: none; } }
+  dialog.sheet::backdrop { background: var(--overlay); }
+  dialog.sheet[open] { animation: sheet-in var(--t-base) var(--ease-enter); }
+  dialog.sheet[open]::backdrop { animation: fade-in var(--t-base) var(--ease-enter); }
+  dialog.drawer { @apply m-0 h-dvh max-h-none w-[min(320px,86vw)] rounded-none rounded-r-sheet p-0; }
+  dialog.drawer[open] { animation: drawer-in var(--t-base) var(--ease-enter); }
+}
+
+/* Mouvement : fonctionnel (apparition, retour d'état). Un seul niveau de hiérarchie anime à la fois. */
+@keyframes rise { from { opacity: 0; transform: translateY(10px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes drawer-in { from { transform: translateX(-24px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes shimmer { to { transform: translateX(100%); } }
+.rise { animation: rise var(--t-slow) var(--ease-enter) both; animation-delay: calc(var(--i, 0) * 45ms); }
+.page-enter { animation: fade-in var(--t-base) var(--ease-enter) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .skeleton::after { display: none; }
+}
