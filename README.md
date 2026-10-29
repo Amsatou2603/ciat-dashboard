@@ -2,7 +2,7 @@
 
 Application web de pilotage de l'incubateur du CIAT (ISEP Amadou Trawaré) — **Projet 3** de l'évaluation pratique en IA générative. Elle permet de **consulter, filtrer, analyser et exporter** les données sur les idées, projets, retards, partenariats et financements, et d'interroger ces données en langage naturel.
 
-![Tableau de bord](docs/captures/tableau-de-bord-sombre.jpg)
+![Tableau de bord](docs/captures/tableau-de-bord-sombre.png)
 
 > ⚠️ **Données fictives.** Les données de démonstration sont synthétiques, étiquetées et signalées dans l'interface. Aucune donnée officielle du CIAT n'est incluse. L'application n'est **pas déployée** et **n'est pas déclarée prête pour la production** : voir « Limites ».
 
