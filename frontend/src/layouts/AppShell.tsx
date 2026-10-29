@@ -45,7 +45,7 @@ function Brand({ variant = 'horizontal' }: { variant?: 'horizontal' | 'vertical'
   }
   return (
     <Link to="/" className="flex items-center rounded-control" aria-label="CIAT — accueil">
-      <Logo variant="horizontal" className="h-7 sm:h-8 w-auto max-w-[140px] sm:max-w-[160px]" />
+      <Logo variant="horizontal" className="h-6 sm:h-7 lg:h-8 w-auto max-w-[110px] sm:max-w-[130px] lg:max-w-[150px]" />
     </Link>
   )
 }
