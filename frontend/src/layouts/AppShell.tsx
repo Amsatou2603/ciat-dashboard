@@ -44,8 +44,8 @@ function Brand({ variant = 'horizontal' }: { variant?: 'horizontal' | 'vertical'
     )
   }
   return (
-    <Link to="/" className="flex items-center gap-2.5 rounded-control px-1 py-1" aria-label="CIAT — accueil">
-      <Logo variant="horizontal" className="h-8 sm:h-9 w-auto max-w-[160px]" />
+    <Link to="/" className="flex items-center rounded-control" aria-label="CIAT — accueil">
+      <Logo variant="horizontal" className="h-7 sm:h-8 w-auto max-w-[140px] sm:max-w-[160px]" />
     </Link>
   )
 }
@@ -120,9 +120,9 @@ function Shell() {
 
       <div className="lg:pl-[calc(var(--sidebar-w)+1.5rem)]">
         <div className="sticky top-0 z-30 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6">
-          <header className="glass mx-auto flex max-w-[1320px] items-center gap-2 rounded-full py-1.5 pl-2 pr-2 sm:pl-3">
+          <header className="glass mx-auto flex max-w-[1320px] items-center gap-2 rounded-full py-2 pl-2 pr-2 sm:py-1.5 sm:pl-3">
             <button type="button" className="btn btn-ghost btn-icon lg:hidden" onClick={() => setDrawer(true)} aria-label="Ouvrir le menu" aria-haspopup="dialog"><Menu aria-hidden size={22} /></button>
-            <div className="lg:hidden"><Brand /></div>
+            <div className="flex items-center justify-center lg:hidden"><Brand /></div>
             <div className="ml-auto flex items-center gap-1.5">
               {can('use_ai') && <Link to="/assistant" className="btn btn-ghost btn-sm hidden sm:inline-flex"><Sparkles aria-hidden size={15} /> Demander à l’IA</Link>}
               <ThemeToggle />
