@@ -47,7 +47,7 @@ export function FilterBar() {
           <div className="grid flex-1 grid-cols-3 gap-3 xl:grid-cols-7"><FilterFields /></div>
           <button type="button" className="btn btn-ghost btn-sm" onClick={reset} disabled={!activeCount}><RotateCcw aria-hidden size={14} /> Réinitialiser</button>
         </div>
-        <div className="flex items-center justify-between gap-3 md:hidden">
+        <div className="flex items-center justify-center gap-3 md:hidden">
           <button type="button" className="btn btn-secondary btn-sm" onClick={() => setOpen(true)} aria-haspopup="dialog">
             <Filter aria-hidden size={15} /> Filtres{activeCount > 0 && <span className="badge tone-info -mr-1 px-2 py-0.5">{activeCount}</span>}
           </button>

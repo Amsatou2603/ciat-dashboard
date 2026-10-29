@@ -120,10 +120,10 @@ function Shell() {
 
       <div className="lg:pl-[calc(var(--sidebar-w)+1.5rem)]">
         <div className="sticky top-0 z-30 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6">
-          <header className="glass mx-auto flex max-w-[1320px] items-center gap-2 rounded-full py-2 pl-2 pr-2 sm:py-1.5 sm:pl-3">
-            <button type="button" className="btn btn-ghost btn-icon lg:hidden" onClick={() => setDrawer(true)} aria-label="Ouvrir le menu" aria-haspopup="dialog"><Menu aria-hidden size={22} /></button>
-            <div className="flex items-center justify-center lg:hidden"><Brand /></div>
-            <div className="ml-auto flex items-center gap-1.5">
+          <header className="glass mx-auto flex max-w-[1320px] items-center justify-between gap-2 rounded-full py-2 pl-2 pr-2 sm:py-1.5 sm:pl-3">
+            <button type="button" className="btn btn-ghost btn-icon lg:hidden shrink-0" onClick={() => setDrawer(true)} aria-label="Ouvrir le menu" aria-haspopup="dialog"><Menu aria-hidden size={22} /></button>
+            <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:left-auto lg:translate-x-0"><Brand /></div>
+            <div className="ml-auto flex items-center gap-1.5 shrink-0">
               {can('use_ai') && <Link to="/assistant" className="btn btn-ghost btn-sm hidden sm:inline-flex"><Sparkles aria-hidden size={15} /> Demander à l’IA</Link>}
               <ThemeToggle />
               <UserMenu />
