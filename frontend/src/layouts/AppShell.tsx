@@ -45,7 +45,7 @@ function Brand({ variant = 'horizontal' }: { variant?: 'horizontal' | 'vertical'
   }
   return (
     <Link to="/" className="flex items-center rounded-control" aria-label="CIAT — accueil">
-      <Logo variant="horizontal" className="h-5 sm:h-6 w-auto max-w-[90px] sm:max-w-[110px]" />
+      <Logo variant="horizontal" className="h-5 w-auto max-w-[85px]" />
     </Link>
   )
 }
@@ -124,7 +124,6 @@ function Shell() {
             <button type="button" className="btn btn-ghost btn-icon lg:hidden shrink-0" onClick={() => setDrawer(true)} aria-label="Ouvrir le menu" aria-haspopup="dialog"><Menu aria-hidden size={22} /></button>
             <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:left-auto lg:translate-x-0"><Brand /></div>
             <div className="ml-auto flex items-center gap-1.5 shrink-0">
-              {can('use_ai') && <Link to="/assistant" className="btn btn-ghost btn-sm hidden sm:inline-flex"><Sparkles aria-hidden size={15} /> Demander à l’IA</Link>}
               <ThemeToggle />
               <UserMenu />
             </div>
