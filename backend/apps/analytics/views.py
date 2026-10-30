@@ -110,17 +110,23 @@ class ExportView(APIView):
         projects = filtered_projects(request.query_params, request.user)
         personal = has_cap(request.user, Cap.VIEW_PERSONAL)
         data = services.summary(projects, request.query_params, personal)
-        if fmt == "xlsx":
-            content, mime = (
-                exports.build_xlsx(projects, request.query_params, data, personal),
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            )
-        elif fmt == "pdf":
-            content, mime = exports.build_pdf(projects, request.query_params, data), "application/pdf"
-        elif fmt == "png":
-            content, mime = exports.build_png(projects, request.query_params, data), "image/png"
-        else:
-            raise ValidationError({"format": "Format inconnu (xlsx, pdf, png)."})
+        try:
+            if fmt == "xlsx":
+                content, mime = (
+                    exports.build_xlsx(projects, request.query_params, data, personal),
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                )
+            elif fmt == "pdf":
+                content, mime = exports.build_pdf(projects, request.query_params, data), "application/pdf"
+            elif fmt == "png":
+                content, mime = exports.build_png(projects, request.query_params, data), "image/png"
+            else:
+                raise ValidationError({"format": "Format inconnu (xlsx, pdf, png)."})
+        except Exception as e:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Erreur lors de la génération de l'export {fmt}: {type(e).__name__}: {str(e)}", exc_info=True)
+            raise ValidationError({"export": f"Erreur lors de la génération de l'export: {type(e).__name__}"})
         record(request, "export", "analytics", fmt, extra={"rows": data["indicators"]["ideas_received"]})
         response = HttpResponse(content, content_type=mime)
         response["Content-Disposition"] = f'attachment; filename="{exports.filename("synthese", fmt)}"'
