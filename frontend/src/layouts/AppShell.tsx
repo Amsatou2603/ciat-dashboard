@@ -107,7 +107,6 @@ function UserMenu() {
 function Shell() {
   const [drawer, setDrawer] = useState(false)
   const location = useLocation()
-  const { can } = useAuth()
   useEffect(() => { setDrawer(false) }, [location.pathname])
   return (
     <div className="min-h-dvh">
